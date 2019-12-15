@@ -20,8 +20,8 @@ RUN apk add --no-cache -U \
   knock \
   ttf-dejavu
 
-RUN addgroup -g 1000 minecraft \
-  && adduser -Ss /bin/false -u 1000 -G minecraft -h /home/minecraft minecraft \
+RUN addgroup -g 968 minecraft \
+  && adduser -Ss /bin/false -u 968 -G minecraft -h /home/minecraft minecraft \
   && mkdir -m 777 /data \
   && chown minecraft:minecraft /data /home/minecraft
 
@@ -68,7 +68,7 @@ WORKDIR /data
 
 STOPSIGNAL SIGTERM
 
-ENV UID=1000 GID=1000 \
+ENV UID=968 GID=968 \
   JVM_XX_OPTS="-XX:+UseG1GC" MEMORY="1G" \
   TYPE=VANILLA VERSION=LATEST \
   ENABLE_RCON=true RCON_PORT=25575 RCON_PASSWORD=minecraft \
